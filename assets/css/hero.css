@@ -154,20 +154,23 @@
 
 .hero__handle:focus-visible { outline: none; }
 
-/* ---------- OVERLAY / GLASS TEXT BLOCK (oben links, kompakt) ---------- */
+/* ---------- OVERLAY / GLASS TEXT BLOCK (oben rechts, ueber Nachher-Seite) ---------- */
 .hero__overlay {
   position: absolute;
-  left: var(--container-pad);
-  top: clamp(6rem, 14vh, 9rem);
   right: var(--container-pad);
+  top: clamp(6rem, 13vh, 9rem);
+  left: auto;
   z-index: var(--z-overlay);
+  display: flex;
+  justify-content: flex-end;
+  max-width: min(420px, calc(100% - 2 * var(--container-pad)));
   pointer-events: none;
 }
 
 .hero__glass {
   pointer-events: auto;
-  max-width: 440px;
-  padding: clamp(1.1rem, 1.8vw, 1.6rem) clamp(1.2rem, 2vw, 1.85rem);
+  max-width: 420px;
+  padding: clamp(1rem, 1.6vw, 1.4rem) clamp(1.1rem, 1.8vw, 1.6rem);
   border-radius: var(--radius-lg);
   background: var(--color-bg-glass-strong);
   -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(160%);
@@ -255,9 +258,17 @@
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 720px) {
   .hero { min-height: 560px; }
-  .hero__overlay { right: var(--container-pad); }
-  .hero__glass { padding: 1.25rem; }
-  .hero__sub { font-size: 0.95rem; }
+  /* Auf Mobile: Glass-Block an den unteren Rand, ueber volle Breite */
+  .hero__overlay {
+    top: auto;
+    bottom: clamp(1.5rem, 4vh, 3rem);
+    left: var(--container-pad);
+    right: var(--container-pad);
+    max-width: none;
+    justify-content: stretch;
+  }
+  .hero__glass { padding: 1.1rem 1.25rem; max-width: none; }
+  .hero__sub { font-size: 0.92rem; }
   .hero__scroll { display: none; }
   .hero__label { top: max(7rem, 14vh); font-size: 0.62rem; }
 }
