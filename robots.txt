@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Rechtliche Pflichtseiten sollen indexiert sein für Anbietertransparenz,
+# werden aber via Meta-Tag noindex,follow markiert (siehe HTML).
+
+Sitemap: https://www.apex-detailing.de/sitemap.xml

@@ -1,0 +1,14 @@
+{
+  "name": "APEX Detailing",
+  "short_name": "APEX",
+  "description": "Premium-Autoaufbereitung & Keramikversiegelung Berlin",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#08090C",
+  "theme_color": "#08090C",
+  "lang": "de",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

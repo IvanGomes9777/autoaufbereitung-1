@@ -40,15 +40,13 @@ Betroffene Felder: Firmenname, Inhaber, Adresse, Telefon, E-Mail, USt-IdNr.
 - [ ] `<title>` jeder Seite mit echtem Firmenname
 
 ### 3. Lokale Fonts aktivieren (DSGVO-Pflicht)
-Aktuell aktiv: System-Fonts (funktioniert, aber nicht im Brand-Look).
+✅ **ERLEDIGT** — Inter (rsms.me, SIL OFL) + Sora (Fontsource, SIL OFL) liegen
+in `/assets/fonts/`, `@font-face` aktiv, Preloads in allen HTML-Seiten.
 
-- [ ] `sora-variable.woff2` und `inter-variable.woff2` von den offiziellen
-      Quellen herunterladen (siehe `assets/fonts/README.txt`)
-- [ ] Beide Dateien nach `/assets/fonts/` ablegen
-- [ ] In `assets/css/base.css` den auskommentierten `@font-face`-Block
-      einkommentieren (Zeilen direkt unter dem Kommentar „AKTIVIERUNG: ...")
-- [ ] Optional für Performance: in jeder HTML-Datei vor `<link rel="stylesheet"`
-      die zwei `<link rel="preload" ... .woff2>` Einträge wieder hinzufügen
+- [x] `sora-variable.woff2` und `inter-variable.woff2` heruntergeladen
+- [x] Beide Dateien in `/assets/fonts/` abgelegt
+- [x] `@font-face` in `base.css` aktiv
+- [x] `<link rel="preload">` in allen 6 HTML-Seiten gesetzt
 
 ### 4. Bild-Platzhalter durch echte Fotos ersetzen
 Aktuell werden Unsplash-Suchbegriffe als Bild-Quellen referenziert
@@ -97,28 +95,34 @@ Das Formular validiert clientseitig, aber **versendet aktuell nichts**.
 ## 🟡 WICHTIG — sollte beim Launch da sein
 
 ### 8. SEO-Grundlagen
-- [ ] `<meta name="description">` pro Seite individuell und prägnant
-- [ ] Open-Graph-Tags hinzufügen (`og:title`, `og:description`, `og:image`)
-- [ ] Twitter-Card-Tags
-- [ ] `robots.txt` im Root erstellen
-- [ ] `sitemap.xml` im Root erstellen (3 Hauptseiten + Legal)
-- [ ] Favicon-Set erzeugen (`favicon.ico`, `apple-touch-icon.png`, manifest)
-- [ ] Google Business Profile anlegen + verifizieren
+✅ **ERLEDIGT** (bis auf Google Business Profile)
+
+- [x] `<meta name="description">` pro Seite individuell
+- [x] Open-Graph-Tags auf allen 6 Seiten
+- [x] Twitter-Card-Tags auf allen 6 Seiten
+- [x] `robots.txt` im Root
+- [x] `sitemap.xml` im Root (alle 6 Seiten mit Prioritäten)
+- [x] Favicon (`favicon.svg`) + Web-Manifest (`site.webmanifest`)
+- [x] `<link rel="canonical">` auf jeder Seite
+- [ ] Google Business Profile anlegen + verifizieren (vor Ort)
+- [ ] OG-Cover-Bild rendern → `/assets/img/og-cover.jpg` (1200×630)
 
 ### 9. Strukturierte Daten (Rich Results bei Google)
-- [ ] `LocalBusiness`-Schema als JSON-LD auf Startseite
-  (Adresse, Öffnungszeiten, Tel, Preisbereich)
-- [ ] `Service`-Schema für jede Detailing-Leistung
-- [ ] `FAQPage`-Schema für die FAQ-Sektion (`leistungen.html`)
+✅ **ERLEDIGT**
+
+- [x] `AutomotiveBusiness`-Schema (LocalBusiness) als JSON-LD auf Startseite
+- [x] `OfferCatalog` mit allen 6 Services + Preisen
+- [x] `FAQPage`-Schema für FAQ-Sektion (Leistungen)
+- [x] `BreadcrumbList`-Schema (Leistungen)
 
 ### 10. Security-Header beim Hosting
-Die Meta-`http-equiv`-Header sind drin, aber echte HTTP-Header wirken stärker.
-Im Hosting-Setup (z. B. `vercel.json`) ergänzen:
+✅ **ERLEDIGT** via `vercel.json`
 
-- [ ] `Content-Security-Policy` (CSP)
-- [ ] `Strict-Transport-Security` (HSTS, min. 1 Jahr)
-- [ ] `X-Frame-Options: DENY`
-- [ ] `Permissions-Policy` (Mikrofon/Kamera/Geolocation blockieren)
+- [x] `Content-Security-Policy` (CSP)
+- [x] `Strict-Transport-Security` (HSTS, 2 Jahre, preload-ready)
+- [x] `X-Frame-Options: DENY`
+- [x] `Permissions-Policy` (Kamera/Mikro/Geo/FLoC blockiert)
+- [x] `Cache-Control` immutable für Fonts/CSS/JS (1 Jahr)
 
 ### 11. Letzte Browser-Tests
 Aktuell visuell geprüft: Chromium-basierte Browser, Desktop + Mobile.
