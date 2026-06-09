@@ -1,0 +1,128 @@
+/* ============================================================
+   APEX DETAILING — page.css
+   Shared styles for sub-pages (Leistungen, Kontakt)
+   ============================================================ */
+
+/* ---------- PAGE HERO (Title Strip) ---------- */
+.page-hero {
+  position: relative;
+  padding: clamp(6rem, 12vw, 9rem) var(--container-pad) clamp(3rem, 6vw, 5rem);
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(30,144,255,0.10), transparent 65%),
+    var(--color-bg-deep);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Subtile Grid-Linien für Premium-Editorial-Feel */
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, #000, transparent 80%);
+}
+
+.page-hero__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.page-hero__eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.page-hero__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.8rem + 3.4vw, 5rem);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.page-hero__lead {
+  margin: 0;
+  max-width: 60ch;
+  font-size: var(--fs-sub);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+/* ---------- ANCHOR CHIPS ---------- */
+.page-hero__chips {
+  list-style: none;
+  margin: var(--space-sm) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.page-hero__chips a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: var(--border-glass);
+  border-radius: 999px;
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    border-color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth),
+    box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.page-hero__chips a::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  transition: background var(--duration-fast) var(--ease-smooth), box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.page-hero__chips a:hover,
+.page-hero__chips a:focus-visible {
+  color: var(--color-text-primary);
+  border-color: rgba(30,144,255,0.45);
+  background: rgba(30,144,255,0.08);
+  box-shadow: 0 0 18px rgba(30,144,255,0.18);
+}
+
+.page-hero__chips a:hover::before,
+.page-hero__chips a:focus-visible::before {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-hero__chips a { transition: none; }
+}
