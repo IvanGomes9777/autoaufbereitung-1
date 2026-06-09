@@ -1,0 +1,164 @@
+/* ============================================================
+   APEX DETAILING — cta-panel.css
+   Wiederverwendbar: Glass-Panel CTA (E1) für Sub-Pages
+   ============================================================ */
+
+.cta-panel {
+  position: relative;
+  padding: clamp(2rem, 5vw, 4rem) var(--container-pad) clamp(4rem, 7vw, 6rem);
+  background: var(--color-bg-deep);
+}
+
+.cta-panel__inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.cta-panel__box {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3.25rem);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(135deg, rgba(30,144,255,0.10), rgba(30,144,255,0.02) 60%),
+    var(--color-bg-glass-strong);
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(160%);
+  backdrop-filter: blur(var(--blur-glass)) saturate(160%);
+  border: 1px solid rgba(30,144,255,0.32);
+  box-shadow:
+    0 0 0 1px rgba(30,144,255,0.10) inset,
+    0 30px 60px -30px rgba(30,144,255,0.35),
+    var(--shadow-elevated);
+  overflow: hidden;
+  isolation: isolate;
+  text-align: center;
+}
+
+/* Glow oben rechts */
+.cta-panel__box::before {
+  content: '';
+  position: absolute;
+  top: -150px;
+  right: -150px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, var(--color-accent-glow), transparent 70%);
+  filter: blur(20px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Glow unten links – subtiler */
+.cta-panel__box::after {
+  content: '';
+  position: absolute;
+  bottom: -180px;
+  left: -180px;
+  width: 380px;
+  height: 380px;
+  background: radial-gradient(circle, rgba(30,144,255,0.18), transparent 70%);
+  filter: blur(24px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.cta-panel__inner-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.cta-panel__eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.cta-panel__title {
+  margin: 0;
+  max-width: 22ch;
+  font-family: var(--font-display);
+  font-size: clamp(1.65rem, 1.1rem + 2.4vw, 2.85rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.cta-panel__sub {
+  margin: 0;
+  max-width: 52ch;
+  font-size: var(--fs-sub);
+  line-height: 1.6;
+  color: var(--color-text-chrome);
+}
+
+.cta-panel__meta {
+  margin: 0;
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.cta-panel__meta .dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  align-self: center;
+  opacity: 0.75;
+  box-shadow: 0 0 6px var(--color-accent-glow);
+}
+
+.cta-panel__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+.cta-panel__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.cta-panel__phone svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+}
+
+/* ---------- REVEAL ---------- */
+.cta-panel__box {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+.cta-panel.is-visible .cta-panel__box { opacity: 1; transform: translateY(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-panel__box { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 560px) {
+  .cta-panel__ctas .btn { width: 100%; justify-content: center; }
+}
