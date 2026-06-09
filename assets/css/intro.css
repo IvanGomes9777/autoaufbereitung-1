@@ -5,9 +5,9 @@
 
 .intro {
   position: relative;
-  padding: clamp(3rem, 6vw, 5rem) var(--container-pad) clamp(3rem, 6vw, 5rem);
+  padding: clamp(2rem, 4vw, 3.5rem) var(--container-pad) clamp(3rem, 5vw, 4.5rem);
   background:
-    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(30,144,255,0.08), transparent 65%),
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(30,144,255,0.10), transparent 65%),
     var(--color-bg-deep);
   overflow: hidden;
   isolation: isolate;
