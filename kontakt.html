@@ -74,13 +74,29 @@
           </h2>
           <p class="gallery-full__lead">
             Ein Ausschnitt aus unserer Studio-Arbeit — vom Performance-Sportler bis zum
-            Klassiker. Zieh den Regler in jeder Karte, um den Unterschied zu sehen.
+            Klassiker. Filtere nach Service oder ziehe den Regler in jeder Karte.
           </p>
         </header>
 
+        <input class="gf-filter-input" type="radio" name="gf-filter" id="flt-all" checked aria-hidden="true" tabindex="-1" />
+        <input class="gf-filter-input" type="radio" name="gf-filter" id="flt-aussen" aria-hidden="true" tabindex="-1" />
+        <input class="gf-filter-input" type="radio" name="gf-filter" id="flt-innen" aria-hidden="true" tabindex="-1" />
+        <input class="gf-filter-input" type="radio" name="gf-filter" id="flt-paint" aria-hidden="true" tabindex="-1" />
+        <input class="gf-filter-input" type="radio" name="gf-filter" id="flt-keramik" aria-hidden="true" tabindex="-1" />
+        <input class="gf-filter-input" type="radio" name="gf-filter" id="flt-restauration" aria-hidden="true" tabindex="-1" />
+
+        <ul class="gf-filter" role="tablist" aria-label="Galerie nach Service filtern">
+          <li><label for="flt-all" role="tab">Alle</label></li>
+          <li><label for="flt-aussen" role="tab">Außen</label></li>
+          <li><label for="flt-innen" role="tab">Innen</label></li>
+          <li><label for="flt-paint" role="tab">Paint Correction</label></li>
+          <li><label for="flt-keramik" role="tab">Keramik</label></li>
+          <li><label for="flt-restauration" role="tab">Restauration</label></li>
+        </ul>
+
         <div class="gallery-full__grid">
 
-          <article class="gf-card gf-card--big">
+          <article class="gf-card" data-cat="paint keramik">
             <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="BMW M4 – Paint Correction und Keramikversiegelung">
               <figure class="gf-card__media gf-card__media--after">
                 <img src="https://source.unsplash.com/1200x800/?bmw,m4,polished,detailed" alt="Nachher: BMW M4 mit spiegelnder Lackoberfläche nach Paint Correction." loading="lazy" decoding="async" width="1200" height="800" />
@@ -108,7 +124,7 @@
             </div>
           </article>
 
-          <article class="gf-card">
+          <article class="gf-card" data-cat="innen">
             <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Audi Q7 – Innenraum-Komplettaufbereitung">
               <figure class="gf-card__media gf-card__media--after">
                 <img src="https://source.unsplash.com/800x600/?audi-interior,clean-leather" alt="Nachher: Audi Q7 Innenraum gereinigt." loading="lazy" decoding="async" width="800" height="600" />
@@ -136,7 +152,7 @@
             </div>
           </article>
 
-          <article class="gf-card">
+          <article class="gf-card" data-cat="keramik">
             <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Tesla Model 3 – Keramikversiegelung">
               <figure class="gf-card__media gf-card__media--after">
                 <img src="https://source.unsplash.com/800x600/?tesla-model3,detailed,polished" alt="Nachher: Tesla mit versiegeltem Lack." loading="lazy" decoding="async" width="800" height="600" />
@@ -164,7 +180,7 @@
             </div>
           </article>
 
-          <article class="gf-card">
+          <article class="gf-card" data-cat="paint keramik innen aussen">
             <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Porsche 911 – Komplett-Aufbereitung">
               <figure class="gf-card__media gf-card__media--after">
                 <img src="https://source.unsplash.com/800x600/?porsche-911,polished-paint,studio" alt="Nachher: Porsche 911 mit tiefem Lackglanz." loading="lazy" decoding="async" width="800" height="600" />
@@ -192,7 +208,7 @@
             </div>
           </article>
 
-          <article class="gf-card gf-card--big">
+          <article class="gf-card" data-cat="restauration paint">
             <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Mercedes-Klassiker – Lack-Restauration">
               <figure class="gf-card__media gf-card__media--after">
                 <img src="https://source.unsplash.com/1200x800/?mercedes,classic-car,deep-black,polished" alt="Nachher: Mercedes-Klassiker mit restauriertem Tiefenlack." loading="lazy" decoding="async" width="1200" height="800" />
@@ -217,6 +233,34 @@
                 <p class="gf-card__service">Lack-Restauration &amp; Tiefenpolitur</p>
               </div>
               <span class="gf-card__tag">Restauration</span>
+            </div>
+          </article>
+
+          <article class="gf-card" data-cat="aussen">
+            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="VW Golf – Außen-Express">
+              <figure class="gf-card__media gf-card__media--after">
+                <img src="https://source.unsplash.com/800x600/?vw-golf,clean-car,polished,wet" alt="Nachher: VW Golf nach Hand-Wäsche und Versiegelung." loading="lazy" decoding="async" width="800" height="600" />
+              </figure>
+              <figure class="gf-card__media gf-card__media--before" data-clip>
+                <img src="https://source.unsplash.com/800x600/?dirty-vw,dusty-car,muddy" alt="Vorher: VW Golf mit verschmutzter Karosserie." loading="lazy" decoding="async" width="800" height="600" />
+              </figure>
+              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
+              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
+              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="VW Golf Vergleich anpassen">
+                <span class="gf-card__handle-line" aria-hidden="true"></span>
+                <span class="gf-card__handle-grip" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
+                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+              </button>
+            </div>
+            <div class="gf-card__meta">
+              <div class="gf-card__meta-text">
+                <h3 class="gf-card__vehicle">VW Golf</h3>
+                <p class="gf-card__service">Außen-Express &amp; Wachs</p>
+              </div>
+              <span class="gf-card__tag">Außen</span>
             </div>
           </article>
 

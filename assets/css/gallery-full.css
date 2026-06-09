@@ -1,6 +1,7 @@
 /* ============================================================
    APEX DETAILING — gallery-full.css
-   Seite 3 / Sektion 2: Vollstaendige Galerie "Masonry Magazine" (G2)
+   Seite 3 / Sektion 2: Vollstaendige Galerie "Filtered Grid" (G1)
+   - CSS-only Filter via radio inputs + :checked ~ Selektoren
    ============================================================ */
 
 .gallery-full {
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-sm);
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
   max-width: 720px;
 }
 
@@ -52,20 +53,108 @@
   max-width: 56ch;
 }
 
-/* ---------- MASONRY GRID (CSS-Grid Areas) ---------- */
-.gallery-full__grid {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: minmax(80px, auto);
-  gap: clamp(1rem, 1.5vw, 1.5rem);
+/* ============================================================
+   FILTER (CSS-only via radio + :checked)
+   Inputs sind direkte Geschwister von .gf-filter und .gallery-full__grid
+   ============================================================ */
+.gf-filter-input {
+  position: absolute;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  clip: rect(0,0,0,0);
 }
 
-/* Masonry layout — manuelle Zellen-Zuweisung */
-.gf-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }   /* BIG: BMW M4 */
-.gf-card:nth-child(2) { grid-column: span 2; grid-row: span 2; }   /* small: Audi Q7 */
-.gf-card:nth-child(3) { grid-column: span 2; grid-row: span 2; }   /* small: Tesla */
-.gf-card:nth-child(4) { grid-column: span 2; grid-row: span 2; }   /* small: Porsche */
-.gf-card:nth-child(5) { grid-column: span 4; grid-row: span 3; }   /* BIG: Mercedes Klassiker */
+.gf-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0 0 clamp(1.5rem, 3vw, 2.25rem);
+  padding: 0;
+  list-style: none;
+}
+
+.gf-filter label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: var(--border-glass);
+  border-radius: 999px;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    border-color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth),
+    box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.gf-filter label::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  transition: background var(--duration-fast) var(--ease-smooth), box-shadow var(--duration-fast) var(--ease-smooth);
+}
+
+.gf-filter label:hover {
+  color: var(--color-text-primary);
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* aktiver Filter — Inputs sind Siblings der UL */
+#flt-all:checked        ~ .gf-filter label[for="flt-all"],
+#flt-aussen:checked     ~ .gf-filter label[for="flt-aussen"],
+#flt-innen:checked      ~ .gf-filter label[for="flt-innen"],
+#flt-paint:checked      ~ .gf-filter label[for="flt-paint"],
+#flt-keramik:checked    ~ .gf-filter label[for="flt-keramik"],
+#flt-restauration:checked ~ .gf-filter label[for="flt-restauration"] {
+  color: var(--color-text-primary);
+  background: rgba(30,144,255,0.10);
+  border-color: rgba(30,144,255,0.45);
+  box-shadow: 0 0 18px rgba(30,144,255,0.22);
+}
+
+#flt-all:checked        ~ .gf-filter label[for="flt-all"]::before,
+#flt-aussen:checked     ~ .gf-filter label[for="flt-aussen"]::before,
+#flt-innen:checked      ~ .gf-filter label[for="flt-innen"]::before,
+#flt-paint:checked      ~ .gf-filter label[for="flt-paint"]::before,
+#flt-keramik:checked    ~ .gf-filter label[for="flt-keramik"]::before,
+#flt-restauration:checked ~ .gf-filter label[for="flt-restauration"]::before {
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+.gf-filter label:focus-visible {
+  outline: 2px solid var(--color-accent-soft);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   GRID + CARDS
+   ============================================================ */
+.gallery-full__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+/* ---------- Filter: nur passende Karten zeigen ---------- */
+#flt-aussen:checked       ~ .gallery-full__grid .gf-card:not([data-cat~="aussen"])       { display: none; }
+#flt-innen:checked        ~ .gallery-full__grid .gf-card:not([data-cat~="innen"])        { display: none; }
+#flt-paint:checked        ~ .gallery-full__grid .gf-card:not([data-cat~="paint"])        { display: none; }
+#flt-keramik:checked      ~ .gallery-full__grid .gf-card:not([data-cat~="keramik"])      { display: none; }
+#flt-restauration:checked ~ .gallery-full__grid .gf-card:not([data-cat~="restauration"]) { display: none; }
 
 /* ---------- CARD ---------- */
 .gf-card {
@@ -92,11 +181,10 @@
     0 0 0 1px rgba(30,144,255,0.18) inset;
 }
 
-/* ---------- SLIDER (gleiche Logik wie Mini-Slider) ---------- */
+/* ---------- SLIDER ---------- */
 .gf-card__slider {
   position: relative;
-  flex-grow: 1;
-  min-height: 220px;
+  aspect-ratio: 4 / 3;
   --reveal: 50%;
   cursor: ew-resize;
   user-select: none;
@@ -208,9 +296,7 @@
   border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.gf-card__meta-text {
-  min-width: 0;
-}
+.gf-card__meta-text { min-width: 0; }
 .gf-card__vehicle {
   margin: 0;
   font-family: var(--font-display);
@@ -239,11 +325,6 @@
   border-radius: 999px;
 }
 
-/* ---------- BIG-Card Sonderlook ---------- */
-.gf-card--big .gf-card__vehicle {
-  font-size: 1.15rem;
-}
-
 /* ---------- REVEAL ---------- */
 .gf-card {
   opacity: 0;
@@ -256,34 +337,21 @@
 }
 .gallery-full.is-visible .gf-card { opacity: 1; transform: translateY(0); }
 .gallery-full.is-visible .gf-card:nth-child(1) { transition-delay:  60ms; }
-.gallery-full.is-visible .gf-card:nth-child(2) { transition-delay: 160ms; }
-.gallery-full.is-visible .gf-card:nth-child(3) { transition-delay: 260ms; }
-.gallery-full.is-visible .gf-card:nth-child(4) { transition-delay: 360ms; }
-.gallery-full.is-visible .gf-card:nth-child(5) { transition-delay: 460ms; }
+.gallery-full.is-visible .gf-card:nth-child(2) { transition-delay: 140ms; }
+.gallery-full.is-visible .gf-card:nth-child(3) { transition-delay: 220ms; }
+.gallery-full.is-visible .gf-card:nth-child(4) { transition-delay: 300ms; }
+.gallery-full.is-visible .gf-card:nth-child(5) { transition-delay: 380ms; }
+.gallery-full.is-visible .gf-card:nth-child(6) { transition-delay: 460ms; }
 
 @media (prefers-reduced-motion: reduce) {
   .gf-card { opacity: 1; transform: none; transition: none; }
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 980px) {
-  .gallery-full__grid { grid-template-columns: repeat(4, 1fr); }
-  .gf-card:nth-child(1) { grid-column: span 4; grid-row: span 3; }
-  .gf-card:nth-child(2) { grid-column: span 2; grid-row: span 2; }
-  .gf-card:nth-child(3) { grid-column: span 2; grid-row: span 2; }
-  .gf-card:nth-child(4) { grid-column: span 2; grid-row: span 2; }
-  .gf-card:nth-child(5) { grid-column: span 4; grid-row: span 3; }
+@media (max-width: 900px) {
+  .gallery-full__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 620px) {
-  .gallery-full__grid {
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
-  }
-  .gf-card,
-  .gf-card:nth-child(n) {
-    grid-column: auto;
-    grid-row: auto;
-  }
-  .gf-card__slider { aspect-ratio: 4 / 3; min-height: 0; }
+@media (max-width: 560px) {
+  .gallery-full__grid { grid-template-columns: 1fr; }
 }
