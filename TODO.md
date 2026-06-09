@@ -49,15 +49,16 @@ in `/assets/fonts/`, `@font-face` aktiv, Preloads in allen HTML-Seiten.
 - [x] `<link rel="preload">` in allen 6 HTML-Seiten gesetzt
 
 ### 4. Bild-Platzhalter durch echte Fotos ersetzen
-Aktuell werden Unsplash-Suchbegriffe als Bild-Quellen referenziert
-(`https://source.unsplash.com/…/?bmw,m4,…`). Für Produktion:
+✅ **TEILWEISE ERLEDIGT** — aktuell laufen 20 kuratierte Pexels-Fotos lokal
+(`/assets/img/*.jpg`, 1920px max, optimiert auf ~5,5 MB Gesamtgewicht,
+JPEG q=78 progressive). Pexels-Lizenz erlaubt kommerzielle Nutzung ohne
+Namensnennung — siehe neuer Abschnitt „Bildmaterial" in `datenschutz.html`.
 
-- [ ] Echte Vorher-/Nachher-Fotos der eigenen Aufträge erstellen (vereinheitlicht:
-      gleicher Winkel, gleiche Lichtsituation, Studio-Setup)
-- [ ] Optimieren auf max. 1920px Kantenlänge, als `.webp` exportieren
-- [ ] Nach `/assets/img/` ablegen (Ordner anlegen)
-- [ ] Alle `https://source.unsplash.com/…` Pfade durch lokale Pfade ersetzen
-      (`/assets/img/bmw-m4-vorher.webp`, etc.)
+Vor Produktivstart wenn möglich:
+- [ ] Eigene Vorher-/Nachher-Fotos der echten Aufträge produzieren (matched pairs:
+      gleicher Winkel, gleiche Lichtsituation, Studio-Setup) und Pexels-Bilder ersetzen
+- [ ] Optional als `.webp` exportieren (~30 % kleiner als JPEG)
+- [ ] Pexels-Hinweis im Datenschutz entfernen, sobald keine Stock-Fotos mehr genutzt
 
 **Hinweis (DSGVO):** Kfz-Kennzeichen auf allen Vorher/Nachher-Fotos **unkenntlich
 machen** (oder schriftliche Einwilligung des Halters einholen). Steht so auch
@@ -104,8 +105,8 @@ Das Formular validiert clientseitig, aber **versendet aktuell nichts**.
 - [x] `sitemap.xml` im Root (alle 6 Seiten mit Prioritäten)
 - [x] Favicon (`favicon.svg`) + Web-Manifest (`site.webmanifest`)
 - [x] `<link rel="canonical">` auf jeder Seite
+- [x] OG-Cover-Bild gerendert (`/assets/img/og-cover.jpg`, 1200×630)
 - [ ] Google Business Profile anlegen + verifizieren (vor Ort)
-- [ ] OG-Cover-Bild rendern → `/assets/img/og-cover.jpg` (1200×630)
 
 ### 9. Strukturierte Daten (Rich Results bei Google)
 ✅ **ERLEDIGT**
