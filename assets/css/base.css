@@ -3,7 +3,11 @@
    Design System: Deep Luxury / Midnight Dynamic
    ============================================================ */
 
-/* ---------- FONTS (lokal, DSGVO-konform) ---------- */
+/* ---------- FONTS (lokal, DSGVO-konform) ----------
+   AKTIVIERUNG: Sobald die Font-Dateien unter /assets/fonts/ liegen
+   (siehe assets/fonts/README.txt), den Block unten einkommentieren.
+   Bis dahin: System-Fallback aus var(--font-display) / var(--font-body).
+
 @font-face {
   font-family: 'Sora';
   src: url('/assets/fonts/sora-variable.woff2') format('woff2-variations');
@@ -19,6 +23,7 @@
   font-style: normal;
   font-display: swap;
 }
+*/
 
 /* ---------- DESIGN TOKENS ---------- */
 :root {
