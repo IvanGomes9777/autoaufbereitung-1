@@ -43,13 +43,37 @@
   pointer-events: none;
 }
 
-/* "After" liegt vollflächig im Hintergrund.
-   "Before" wird durch clip-path beschnitten und liegt darüber. */
+/* "After" = Original-Lack im Hintergrund.
+   "Before" = selbes Foto mit CSS-Filter "schmutzig/matt/staubig",
+   beschnitten via clip-path. So sehen Nutzer dasselbe Fahrzeug
+   in zwei Zuständen — wie in echten Detailing-Vergleichen. */
 .hero__media--after { z-index: var(--z-base); }
 .hero__media--before {
   z-index: 2;
   clip-path: polygon(0 0, var(--reveal) 0, var(--reveal) 100%, 0 100%);
   will-change: clip-path;
+}
+.hero__media--before img {
+  filter:
+    brightness(0.58)
+    saturate(0.35)
+    contrast(0.92)
+    sepia(0.20);
+}
+/* Staub-/Schmutz-Schleier oben drauf */
+.hero__media--before::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 30%, rgba(120,100,75,0.18), transparent 70%),
+    repeating-linear-gradient(115deg,
+      rgba(255,240,210,0.04) 0 3px,
+      transparent 3px 9px),
+    linear-gradient(180deg, rgba(60,50,35,0.18), rgba(20,15,10,0.28));
+  mix-blend-mode: multiply;
 }
 
 /* Labels Vorher / Nachher */
@@ -153,11 +177,11 @@
 
 .hero__handle:focus-visible { outline: none; }
 
-/* ---------- OVERLAY / GLASS TEXT BLOCK (unten links) ---------- */
+/* ---------- OVERLAY / GLASS TEXT BLOCK (oben links, kompakt) ---------- */
 .hero__overlay {
   position: absolute;
   left: var(--container-pad);
-  bottom: clamp(2rem, 5vh, 4rem);
+  top: clamp(6rem, 14vh, 9rem);
   right: var(--container-pad);
   z-index: var(--z-overlay);
   pointer-events: none;
@@ -165,8 +189,8 @@
 
 .hero__glass {
   pointer-events: auto;
-  max-width: 640px;
-  padding: clamp(1.5rem, 2.5vw, 2.25rem);
+  max-width: 440px;
+  padding: clamp(1.1rem, 1.8vw, 1.6rem) clamp(1.2rem, 2vw, 1.85rem);
   border-radius: var(--radius-lg);
   background: var(--color-bg-glass-strong);
   -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(160%);
@@ -186,22 +210,22 @@
 }
 
 .hero__headline {
-  margin: 0 0 var(--space-sm) 0;
+  margin: 0 0 0.65rem 0;
   font-family: var(--font-display);
-  font-size: var(--fs-h1);
+  font-size: clamp(1.8rem, 1.1rem + 2.4vw, 3rem);
   font-weight: 800;
-  line-height: 0.98;
+  line-height: 1.0;
   letter-spacing: -0.02em;
   color: var(--color-text-primary);
   text-wrap: balance;
 }
 
 .hero__sub {
-  margin: 0 0 var(--space-md) 0;
-  font-size: var(--fs-sub);
-  line-height: 1.55;
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--color-text-chrome);
-  max-width: 38ch;
+  max-width: 34ch;
 }
 
 .hero__ctas {
