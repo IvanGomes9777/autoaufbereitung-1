@@ -1,0 +1,100 @@
+/* ============================================================
+   APEX DETAILING — intro.css
+   Sektion direkt unter dem Hero: Eyebrow + Headline + Sub + CTAs
+   ============================================================ */
+
+.intro {
+  position: relative;
+  padding: clamp(3rem, 6vw, 5rem) var(--container-pad) clamp(3rem, 6vw, 5rem);
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(30,144,255,0.08), transparent 65%),
+    var(--color-bg-deep);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Sehr subtiler Grid-Hintergrund fuer Editorial-Feel */
+.intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000, transparent 85%);
+}
+
+.intro__inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.intro__eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.intro__headline {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 1.5rem + 4.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.intro__sub {
+  margin: 0;
+  max-width: 52ch;
+  font-size: var(--fs-sub);
+  line-height: 1.6;
+  color: var(--color-text-chrome);
+}
+
+.intro__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+/* ---------- REVEAL ---------- */
+.intro__inner > * {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+.intro.is-visible .intro__inner > * { opacity: 1; transform: translateY(0); }
+.intro.is-visible .intro__inner > *:nth-child(1) { transition-delay:  80ms; }
+.intro.is-visible .intro__inner > *:nth-child(2) { transition-delay: 160ms; }
+.intro.is-visible .intro__inner > *:nth-child(3) { transition-delay: 240ms; }
+.intro.is-visible .intro__inner > *:nth-child(4) { transition-delay: 320ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro__inner > * { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 480px) {
+  .intro__ctas { width: 100%; }
+  .intro__ctas .btn { flex: 1; justify-content: center; padding: 0.85rem 1rem; }
+}

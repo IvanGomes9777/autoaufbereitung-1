@@ -6,8 +6,9 @@
 .hero {
   position: relative;
   width: 100%;
-  height: 100vh;
-  min-height: 640px;
+  height: 72vh;
+  min-height: 560px;
+  max-height: 820px;
   overflow: hidden;
   background: var(--color-bg-deep);
   isolation: isolate;
@@ -154,65 +155,7 @@
 
 .hero__handle:focus-visible { outline: none; }
 
-/* ---------- OVERLAY / GLASS TEXT BLOCK (oben rechts, ueber Nachher-Seite) ---------- */
-.hero__overlay {
-  position: absolute;
-  right: var(--container-pad);
-  top: clamp(6rem, 13vh, 9rem);
-  left: auto;
-  z-index: var(--z-overlay);
-  display: flex;
-  justify-content: flex-end;
-  max-width: min(420px, calc(100% - 2 * var(--container-pad)));
-  pointer-events: none;
-}
-
-.hero__glass {
-  pointer-events: auto;
-  max-width: 420px;
-  padding: clamp(1rem, 1.6vw, 1.4rem) clamp(1.1rem, 1.8vw, 1.6rem);
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-glass-strong);
-  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(160%);
-  backdrop-filter: blur(var(--blur-glass)) saturate(160%);
-  border: var(--border-glass-strong);
-  box-shadow: var(--shadow-elevated);
-}
-
-.hero__eyebrow {
-  margin: 0 0 var(--space-sm) 0;
-  font-family: var(--font-display);
-  font-size: var(--fs-eyebrow);
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  color: var(--color-accent-soft);
-  text-transform: uppercase;
-}
-
-.hero__headline {
-  margin: 0 0 0.65rem 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 1.1rem + 2.4vw, 3rem);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
-  text-wrap: balance;
-}
-
-.hero__sub {
-  margin: 0 0 1rem 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--color-text-chrome);
-  max-width: 34ch;
-}
-
-.hero__ctas {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
+/* (Hero-Overlay komplett entfernt - Text steht jetzt in .intro Sektion darunter) */
 
 /* ---------- SCROLL HINT ---------- */
 .hero__scroll {
@@ -257,22 +200,7 @@
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 720px) {
-  .hero { min-height: 560px; }
-  /* Auf Mobile: Glass-Block an den unteren Rand, ueber volle Breite */
-  .hero__overlay {
-    top: auto;
-    bottom: clamp(1.5rem, 4vh, 3rem);
-    left: var(--container-pad);
-    right: var(--container-pad);
-    max-width: none;
-    justify-content: stretch;
-  }
-  .hero__glass { padding: 1.1rem 1.25rem; max-width: none; }
-  .hero__sub { font-size: 0.92rem; }
+  .hero { min-height: 520px; height: 75vh; }
   .hero__scroll { display: none; }
   .hero__label { top: max(7rem, 14vh); font-size: 0.62rem; }
-}
-
-@media (max-width: 480px) {
-  .hero__ctas .btn { flex: 1; justify-content: center; padding: 0.85rem 1rem; }
 }
