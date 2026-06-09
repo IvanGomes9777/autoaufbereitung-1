@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="/assets/css/page.css" />
   <link rel="stylesheet" href="/assets/css/gallery-full.css" />
   <link rel="stylesheet" href="/assets/css/team.css" />
+  <link rel="stylesheet" href="/assets/css/contact.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -358,6 +359,171 @@
       </div>
     </section>
 
+    <section id="anfrage" class="contact" aria-labelledby="contact-title">
+      <div class="contact__inner">
+
+        <header class="contact__header">
+          <p class="contact__eyebrow">◆ Anfrage</p>
+          <h2 id="contact-title" class="contact__title">
+            Dein Angebot in 24 Stunden.
+          </h2>
+          <p class="contact__lead">
+            Beschreib uns dein Fahrzeug und lade optional Fotos hoch —
+            wir melden uns innerhalb eines Werktags mit einem verbindlichen Festpreis zurück.
+          </p>
+        </header>
+
+        <div class="contact__grid">
+
+          <div class="contact__form-wrap">
+            <form class="contact__form" data-contact-form novalidate
+                  method="post" action="#" autocomplete="on">
+
+              <!-- Honeypot (vor Bots versteckt) -->
+              <input type="text" name="website" class="contact__honeypot" data-honeypot tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <div class="field-row">
+                <div class="field">
+                  <input class="field__input" type="text" id="ct-name" name="name" required maxlength="80" autocomplete="name" placeholder=" " />
+                  <label class="field__label" for="ct-name">Name<span class="field__required" aria-hidden="true">*</span></label>
+                </div>
+                <div class="field">
+                  <input class="field__input" type="tel" id="ct-tel" name="telefon" maxlength="30" autocomplete="tel" placeholder=" " pattern="[0-9 +/()\-]{6,30}" />
+                  <label class="field__label" for="ct-tel">Telefon</label>
+                </div>
+              </div>
+
+              <div class="field">
+                <input class="field__input" type="email" id="ct-email" name="email" required maxlength="120" autocomplete="email" placeholder=" " />
+                <label class="field__label" for="ct-email">E-Mail<span class="field__required" aria-hidden="true">*</span></label>
+              </div>
+
+              <div class="field-row">
+                <div class="field">
+                  <input class="field__input" type="text" id="ct-vehicle" name="fahrzeug" required maxlength="80" placeholder=" " />
+                  <label class="field__label" for="ct-vehicle">Fahrzeug (Marke &amp; Modell)<span class="field__required" aria-hidden="true">*</span></label>
+                </div>
+                <div class="field">
+                  <select class="field__select" id="ct-service" name="leistung" required>
+                    <option value="" disabled selected hidden></option>
+                    <option value="aussen">Außen-Aufbereitung</option>
+                    <option value="innen">Innenraum-Detailing</option>
+                    <option value="paint">Paint Correction</option>
+                    <option value="keramik">Keramikversiegelung</option>
+                    <option value="ppf">Lackschutzfolie (PPF)</option>
+                    <option value="complete">APEX Complete</option>
+                    <option value="beratung">Beratung gewünscht</option>
+                  </select>
+                  <label class="field__label" for="ct-service">Wunsch-Leistung<span class="field__required" aria-hidden="true">*</span></label>
+                </div>
+              </div>
+
+              <div class="field">
+                <textarea class="field__textarea" id="ct-message" name="nachricht" required maxlength="2000" placeholder=" "></textarea>
+                <label class="field__label" for="ct-message">Lack-Zustand &amp; Wünsche<span class="field__required" aria-hidden="true">*</span></label>
+              </div>
+
+              <!-- Foto-Upload -->
+              <div class="field-upload">
+                <span class="field-upload__label" id="ct-upload-label">Fotos hochladen (optional, max 5)</span>
+                <label class="field-upload__drop" data-drop aria-labelledby="ct-upload-label">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                  </svg>
+                  <strong>Fotos hierher ziehen oder klicken</strong>
+                  <p class="field-upload__hint">JPG, PNG, WEBP — max. 5 Dateien à 5&nbsp;MB.<br />Bitte Kennzeichen auf Fotos vorab unkenntlich machen.</p>
+                  <input class="field-upload__input" type="file" name="fotos" data-file-input
+                         accept="image/jpeg,image/png,image/webp" multiple />
+                </label>
+                <ul class="field-upload__preview" data-preview aria-live="polite"></ul>
+              </div>
+
+              <label class="field-check">
+                <input type="checkbox" name="datenschutz" required />
+                <span class="field-check__box" aria-hidden="true"></span>
+                <span>
+                  Ich habe die <a href="/datenschutz.html">Datenschutzerklärung</a> gelesen
+                  und stimme der Verarbeitung meiner Daten zur Bearbeitung der Anfrage zu.
+                  <span class="field__required" aria-hidden="true">*</span>
+                </span>
+              </label>
+
+              <div class="contact__submit">
+                <button type="submit" class="btn btn--primary">
+                  Angebot anfordern
+                  <span aria-hidden="true">→</span>
+                </button>
+                <p class="contact__status" data-status role="status" aria-live="polite"></p>
+              </div>
+
+            </form>
+          </div>
+
+          <aside class="contact__info" aria-label="Kontaktdaten und Vorteile">
+            <h3 class="contact__info-title">Direkt sprechen</h3>
+
+            <ul class="contact__info-list">
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92Z"/>
+                  </svg>
+                </span>
+                <span class="contact__info-text">
+                  <strong>Telefon</strong>
+                  <a href="tel:+4930444555">+49&nbsp;30&nbsp;444-5555</a>
+                </span>
+              </li>
+
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2Z"/><path d="m22 6-10 7L2 6"/>
+                  </svg>
+                </span>
+                <span class="contact__info-text">
+                  <strong>E-Mail</strong>
+                  <a href="mailto:info@apex-detailing.de">info@apex-detailing.de</a>
+                </span>
+              </li>
+
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </span>
+                <span class="contact__info-text">
+                  <strong>Studio</strong>
+                  Industriestraße&nbsp;12<br />10115&nbsp;Berlin
+                </span>
+              </li>
+
+              <li class="contact__info-item">
+                <span class="contact__info-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
+                  </svg>
+                </span>
+                <span class="contact__info-text">
+                  <strong>Öffnungszeiten</strong>
+                  Mo–Fr 08:00–18:00<br />Sa 09:00–14:00
+                </span>
+              </li>
+            </ul>
+
+            <ul class="contact__trust">
+              <li>Antwort innerhalb von 24&nbsp;Stunden</li>
+              <li>Kostenlos &amp; unverbindlich</li>
+              <li>Vollversichert — auch hochwertige Fahrzeuge</li>
+              <li>DSGVO-konforme Datenverarbeitung</li>
+            </ul>
+          </aside>
+
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
@@ -373,6 +539,7 @@
 
   <script src="/assets/js/hero-slider.js" defer></script>
   <script src="/assets/js/counters.js" defer></script>
+  <script src="/assets/js/contact-form.js" defer></script>
 
 </body>
 </html>
