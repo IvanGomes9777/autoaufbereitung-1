@@ -9,18 +9,18 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- TRUST-SECTION REVEAL ---------- */
-  const trustSection = document.querySelector('.trust');
-  if (trustSection) {
+  /* ---------- GENERIC SECTION REVEAL ---------- */
+  const revealTargets = document.querySelectorAll('.trust, .services');
+  if (revealTargets.length) {
     const obs = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          trustSection.classList.add('is-visible');
-          observer.disconnect();
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.35 });
-    obs.observe(trustSection);
+    }, { threshold: 0.2 });
+    revealTargets.forEach((el) => obs.observe(el));
   }
 
   /* ---------- COUNTER ANIMATION ---------- */
