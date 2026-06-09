@@ -1,0 +1,234 @@
+/* ============================================================
+   APEX DETAILING — faq.css
+   Seite 2 / Sektion 4: FAQ "Accordion Classic" (F1)
+   Native <details>/<summary> — Zero JS, A11y eingebaut
+   ============================================================ */
+
+.faq {
+  position: relative;
+  padding: clamp(2rem, 5vw, 4rem) var(--container-pad) clamp(4rem, 8vw, 7rem);
+  background:
+    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(30,144,255,0.06), transparent 70%),
+    var(--color-bg-deep);
+}
+
+.faq__inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+/* ---------- HEADER ---------- */
+.faq__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.faq__eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.faq__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 1.3rem + 2.4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.faq__lead {
+  margin: 0;
+  font-size: var(--fs-sub);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 56ch;
+}
+
+/* ---------- LIST ---------- */
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* ---------- ITEM ---------- */
+.faq-item {
+  position: relative;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+  border: var(--border-glass);
+  overflow: hidden;
+  transition:
+    border-color var(--duration-med) var(--ease-out),
+    background var(--duration-med) var(--ease-out),
+    box-shadow var(--duration-med) var(--ease-out);
+}
+
+.faq-item[open] {
+  border-color: rgba(30,144,255,0.32);
+  background: rgba(20,22,28,0.7);
+  box-shadow: 0 20px 40px -20px rgba(30,144,255,0.25);
+}
+
+.faq-item:hover { border-color: rgba(255,255,255,0.14); }
+
+/* ---------- SUMMARY (Frage) ---------- */
+.faq-item__summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.1rem 1.35rem;
+  cursor: pointer;
+  font-family: var(--font-display);
+  font-size: clamp(0.98rem, 0.9rem + 0.3vw, 1.1rem);
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+  list-style: none;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+
+/* Native marker entfernen */
+.faq-item__summary::-webkit-details-marker { display: none; }
+.faq-item__summary::marker { content: ''; }
+
+.faq-item__summary:hover { color: var(--color-accent-soft); }
+
+/* Indikator (Plus → Minus) */
+.faq-item__icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(30,144,255,0.08);
+  border: 1px solid rgba(30,144,255,0.3);
+  display: grid;
+  place-items: center;
+  transition:
+    background var(--duration-fast) var(--ease-smooth),
+    border-color var(--duration-fast) var(--ease-smooth),
+    transform var(--duration-med) var(--ease-out),
+    box-shadow var(--duration-med) var(--ease-out);
+}
+
+.faq-item__icon::before,
+.faq-item__icon::after {
+  content: '';
+  position: absolute;
+  background: var(--color-accent-soft);
+  border-radius: 1px;
+  transition: transform var(--duration-med) var(--ease-out), background var(--duration-fast) var(--ease-smooth);
+}
+
+.faq-item__icon::before {
+  width: 12px;
+  height: 2px;
+}
+
+.faq-item__icon::after {
+  width: 2px;
+  height: 12px;
+}
+
+.faq-item[open] .faq-item__icon {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 16px var(--color-accent-glow);
+  transform: rotate(45deg);
+}
+
+.faq-item[open] .faq-item__icon::before,
+.faq-item[open] .faq-item__icon::after {
+  background: #08090C;
+}
+
+.faq-item__question {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+/* Hover/Focus auf gesamte Zeile */
+.faq-item__summary:focus-visible {
+  outline: 2px solid var(--color-accent-soft);
+  outline-offset: -2px;
+  border-radius: var(--radius-md);
+}
+
+/* ---------- ANSWER ---------- */
+.faq-item__answer {
+  padding: 0 1.35rem 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-text-chrome);
+  max-width: 68ch;
+}
+
+.faq-item__answer > * + * { margin-top: 0.65rem; }
+
+.faq-item__answer strong { color: var(--color-text-primary); }
+
+.faq-item__answer ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.2rem;
+  list-style: none;
+}
+.faq-item__answer ul li {
+  position: relative;
+  padding-left: 1rem;
+  margin-bottom: 0.25rem;
+}
+.faq-item__answer ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  box-shadow: 0 0 6px var(--color-accent-glow);
+}
+
+/* ---------- REVEAL ---------- */
+.faq-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out),
+    border-color var(--duration-med) var(--ease-out),
+    background var(--duration-med) var(--ease-out),
+    box-shadow var(--duration-med) var(--ease-out);
+}
+.faq.is-visible .faq-item { opacity: 1; transform: translateY(0); }
+.faq.is-visible .faq-item:nth-child(1) { transition-delay:  60ms; }
+.faq.is-visible .faq-item:nth-child(2) { transition-delay: 120ms; }
+.faq.is-visible .faq-item:nth-child(3) { transition-delay: 180ms; }
+.faq.is-visible .faq-item:nth-child(4) { transition-delay: 240ms; }
+.faq.is-visible .faq-item:nth-child(5) { transition-delay: 300ms; }
+.faq.is-visible .faq-item:nth-child(6) { transition-delay: 360ms; }
+.faq.is-visible .faq-item:nth-child(7) { transition-delay: 420ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-item__icon,
+  .faq-item__icon::before,
+  .faq-item__icon::after { transition: none; }
+  .faq-item { opacity: 1; transform: none; }
+}

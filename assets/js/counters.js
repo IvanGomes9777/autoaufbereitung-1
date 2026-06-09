@@ -10,7 +10,7 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- GENERIC SECTION REVEAL ---------- */
-  const revealTargets = document.querySelectorAll('.trust, .services, .gallery, .hydro, .about, .finalcta, .service-list, .pricing');
+  const revealTargets = document.querySelectorAll('.trust, .services, .gallery, .hydro, .about, .finalcta, .service-list, .pricing, .faq');
   if (revealTargets.length) {
     const obs = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
