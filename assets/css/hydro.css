@@ -1,0 +1,286 @@
+/* ============================================================
+   APEX DETAILING — hydro.css
+   Sektion 5: Hydrophobie-Story "Droplet Stage" (H1)
+   ============================================================ */
+
+.hydro {
+  position: relative;
+  padding: clamp(4rem, 8vw, 7rem) var(--container-pad);
+  background:
+    radial-gradient(ellipse 60% 30% at 20% 50%, rgba(30,144,255,0.06), transparent 70%),
+    var(--color-bg-deep);
+  overflow: hidden;
+}
+
+.hydro__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+
+/* ============================================================
+   LEFT: STAGE (animated droplets on glossy lack)
+   ============================================================ */
+.hydro__stage {
+  position: relative;
+  aspect-ratio: 5 / 6;
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 25%, rgba(30,144,255,0.18), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 30% 80%, rgba(255,255,255,0.05), transparent 60%),
+    linear-gradient(160deg, #0c0e14 0%, #050608 60%, #0a0c12 100%);
+  border: var(--border-glass-strong);
+  box-shadow:
+    inset 0 0 60px rgba(0,0,0,0.6),
+    var(--shadow-elevated);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Specular highlight – wandert über den "Lack" */
+.hydro__stage::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 70%;
+  height: 80%;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.16), transparent 70%);
+  filter: blur(20px);
+  animation: hydro-sheen 7s var(--ease-smooth) infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hydro-sheen {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.7; }
+  50%      { transform: translate(140%, 60%) rotate(8deg); opacity: 1; }
+}
+
+/* Floor-glow */
+.hydro__stage::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 35%;
+  background: radial-gradient(ellipse at center bottom, rgba(30,144,255,0.18), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ---------- DROPLETS ---------- */
+.hydro__droplets {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
+.hydro__drop {
+  position: absolute;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 30%, rgba(255,255,255,0.9), rgba(180,210,255,0.35) 35%, rgba(30,60,100,0.25) 70%, rgba(0,0,0,0.4) 100%);
+  box-shadow:
+    inset 0 -2px 4px rgba(255,255,255,0.18),
+    0 2px 5px rgba(0,0,0,0.5),
+    0 0 10px rgba(30,144,255,0.18);
+  opacity: 0;
+  will-change: transform, opacity;
+  animation: drop-life 6s var(--ease-smooth) infinite;
+}
+
+/* Highlight-Glanzpunkt auf jedem Tropfen */
+.hydro__drop::before {
+  content: '';
+  position: absolute;
+  top: 18%;
+  left: 22%;
+  width: 28%;
+  height: 22%;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.85);
+  filter: blur(1px);
+}
+
+@keyframes drop-life {
+  0%   { opacity: 0; transform: scale(0.4) translateY(0); }
+  15%  { opacity: 1; transform: scale(1) translateY(0); }
+  60%  { opacity: 1; transform: scale(1) translateY(0); }
+  85%  { opacity: 1; transform: scale(1) translateY(70px); }
+  100% { opacity: 0; transform: scale(0.85) translateY(160px); }
+}
+
+/* Individual droplet positions, sizes, delays */
+.hydro__drop:nth-child(1)  { top: 12%; left: 18%; width: 38px; height: 38px; animation-delay: 0.0s;  animation-duration: 6.0s; }
+.hydro__drop:nth-child(2)  { top: 22%; left: 60%; width: 26px; height: 26px; animation-delay: 1.4s;  animation-duration: 5.4s; }
+.hydro__drop:nth-child(3)  { top: 38%; left: 32%; width: 48px; height: 48px; animation-delay: 0.7s;  animation-duration: 7.2s; }
+.hydro__drop:nth-child(4)  { top: 30%; left: 78%; width: 22px; height: 22px; animation-delay: 2.1s;  animation-duration: 5.8s; }
+.hydro__drop:nth-child(5)  { top: 55%; left: 14%; width: 30px; height: 30px; animation-delay: 1.0s;  animation-duration: 6.6s; }
+.hydro__drop:nth-child(6)  { top: 50%; left: 50%; width: 56px; height: 56px; animation-delay: 0.3s;  animation-duration: 7.8s; }
+.hydro__drop:nth-child(7)  { top: 62%; left: 72%; width: 34px; height: 34px; animation-delay: 1.7s;  animation-duration: 6.2s; }
+.hydro__drop:nth-child(8)  { top: 70%; left: 30%; width: 22px; height: 22px; animation-delay: 2.5s;  animation-duration: 5.6s; }
+.hydro__drop:nth-child(9)  { top: 15%; left: 42%; width: 18px; height: 18px; animation-delay: 3.0s;  animation-duration: 5.2s; }
+.hydro__drop:nth-child(10) { top: 78%; left: 56%; width: 28px; height: 28px; animation-delay: 0.5s;  animation-duration: 6.4s; }
+.hydro__drop:nth-child(11) { top: 8%;  left: 80%; width: 20px; height: 20px; animation-delay: 1.9s;  animation-duration: 5.5s; }
+.hydro__drop:nth-child(12) { top: 45%; left: 8%;  width: 24px; height: 24px; animation-delay: 2.3s;  animation-duration: 6.0s; }
+
+/* Stage Caption (bottom-left badge) */
+.hydro__stage-badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+  background: var(--color-bg-glass-strong);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: var(--border-glass);
+  border-radius: 999px;
+}
+.hydro__stage-badge::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 10px var(--color-accent-glow);
+  animation: hydro-pulse 1.6s ease-in-out infinite;
+}
+@keyframes hydro-pulse {
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%      { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ============================================================
+   RIGHT: STORY CONTENT
+   ============================================================ */
+.hydro__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.hydro__eyebrow {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.hydro__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 1.3rem + 2.6vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text-primary);
+  text-wrap: balance;
+}
+
+.hydro__lead {
+  margin: 0;
+  font-size: var(--fs-sub);
+  line-height: 1.65;
+  color: var(--color-text-chrome);
+  max-width: 50ch;
+}
+
+.hydro__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem 1.5rem;
+}
+
+.hydro__list li {
+  position: relative;
+  padding-left: 1.85rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--color-text-primary);
+}
+
+.hydro__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255,255,255,0.95), var(--color-accent-soft) 60%, rgba(0,0,0,0.4));
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+.hydro__list li strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+  margin-bottom: 0.15rem;
+}
+
+.hydro__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-xs);
+}
+
+/* ---------- REVEAL ---------- */
+.hydro__stage,
+.hydro__content > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+.hydro.is-visible .hydro__stage { opacity: 1; transform: translateY(0); }
+.hydro.is-visible .hydro__content > * { opacity: 1; transform: translateY(0); }
+.hydro.is-visible .hydro__content > *:nth-child(1) { transition-delay: 100ms; }
+.hydro.is-visible .hydro__content > *:nth-child(2) { transition-delay: 180ms; }
+.hydro.is-visible .hydro__content > *:nth-child(3) { transition-delay: 260ms; }
+.hydro.is-visible .hydro__content > *:nth-child(4) { transition-delay: 340ms; }
+.hydro.is-visible .hydro__content > *:nth-child(5) { transition-delay: 420ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hydro__stage::before,
+  .hydro__drop,
+  .hydro__stage-badge::before { animation: none; }
+  .hydro__drop { opacity: 1; transform: none; }
+  .hydro__stage,
+  .hydro__content > * { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 960px) {
+  .hydro__inner { grid-template-columns: 1fr; }
+  .hydro__stage { aspect-ratio: 16 / 11; max-width: 560px; margin: 0 auto; width: 100%; }
+}
+
+@media (max-width: 560px) {
+  .hydro__list { grid-template-columns: 1fr; }
+}
