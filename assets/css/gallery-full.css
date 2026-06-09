@@ -216,27 +216,6 @@
   clip-path: polygon(0 0, var(--reveal) 0, var(--reveal) 100%, 0 100%);
   will-change: clip-path;
 }
-.gf-card__media--before img {
-  filter:
-    brightness(0.58)
-    saturate(0.35)
-    contrast(0.92)
-    sepia(0.20);
-}
-.gf-card__media--before::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 90% 70% at 50% 30%, rgba(120,100,75,0.18), transparent 70%),
-    repeating-linear-gradient(115deg,
-      rgba(255,240,210,0.04) 0 3px,
-      transparent 3px 9px),
-    linear-gradient(180deg, rgba(60,50,35,0.18), rgba(20,15,10,0.28));
-  mix-blend-mode: multiply;
-}
 
 /* Labels */
 .gf-card__label {
