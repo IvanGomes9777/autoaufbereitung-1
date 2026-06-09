@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="APEX Detailing Berlin – Premium-Autoaufbereitung & Keramikversiegelung mit 5 Jahren Garantie. Zertifiziert von Gtechniq & CarPro." />
+  <meta name="theme-color" content="#08090C" />
+
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+
+  <title>APEX Detailing – Premium-Autoaufbereitung Berlin</title>
+
+  <link rel="preload" href="/assets/fonts/sora-variable.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+
+  <link rel="stylesheet" href="/assets/css/base.css" />
+  <link rel="stylesheet" href="/assets/css/hero.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+
+  <header class="site-header" data-glass>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a class="nav__brand" href="/" aria-label="APEX Detailing – Startseite">
+        <span class="nav__brand-mark" aria-hidden="true">◆</span>
+        <span class="nav__brand-text">APEX <span>DETAILING</span></span>
+      </a>
+
+      <ul class="nav__list">
+        <li><a href="/" aria-current="page">Start</a></li>
+        <li><a href="/leistungen.html">Leistungen &amp; Preise</a></li>
+        <li><a href="/kontakt.html">Galerie &amp; Kontakt</a></li>
+      </ul>
+
+      <a class="nav__cta" href="/kontakt.html#anfrage">Angebot anfordern</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-headline">
+      <div class="hero__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Interaktiver Vorher-Nachher-Vergleich eines schwarzen Sportwagens">
+
+        <figure class="hero__media hero__media--after">
+          <img
+            src="https://source.unsplash.com/1920x1080/?black-sportscar,detailed,polished,studio"
+            alt="Nachher: Schwarzer Sportwagen mit spiegelglattem, frisch versiegeltem Lack."
+            loading="eager"
+            decoding="async"
+            width="1920" height="1080"
+          />
+        </figure>
+
+        <figure class="hero__media hero__media--before" data-clip>
+          <img
+            src="https://source.unsplash.com/1920x1080/?dirty-car,muddy,dusty-vehicle"
+            alt="Vorher: Verschmutzter Sportwagen mit mattem, staubigem Lack."
+            loading="eager"
+            decoding="async"
+            width="1920" height="1080"
+          />
+          <figcaption class="hero__label hero__label--before" aria-hidden="true">Vorher</figcaption>
+        </figure>
+        <figcaption class="hero__label hero__label--after" aria-hidden="true">Nachher</figcaption>
+
+        <button
+          type="button"
+          class="hero__handle"
+          data-handle
+          aria-label="Vorher-Nachher-Vergleich anpassen. Pfeil links und rechts oder Maus verwenden."
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="50"
+          role="slider"
+        >
+          <span class="hero__handle-line" aria-hidden="true"></span>
+          <span class="hero__handle-grip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" focusable="false">
+              <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </button>
+
+        <div class="hero__vignette" aria-hidden="true"></div>
+      </div>
+
+      <div class="hero__overlay">
+        <div class="hero__glass" data-glass>
+          <p class="hero__eyebrow">◆ APEX DETAILING · BERLIN</p>
+          <h1 id="hero-headline" class="hero__headline">
+            Perfektion ist<br />kein Detail.
+          </h1>
+          <p class="hero__sub">
+            Ziehe den Regler — und sieh, was Premium-Aufbereitung &amp; Keramikversiegelung wirklich bedeuten.
+          </p>
+          <div class="hero__ctas">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Kostenloses Angebot
+              <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost" href="/kontakt.html#galerie">
+              Galerie ansehen
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a class="hero__scroll" href="#next" aria-label="Weiter scrollen">
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+        <span class="hero__scroll-text">scroll</span>
+      </a>
+    </section>
+
+    <section id="next" class="placeholder" aria-label="Folgende Sektion in Vorbereitung">
+      <p>Nächste Sektion folgt im nächsten Schritt.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p>&copy; 2025 APEX Detailing</p>
+      <ul class="site-footer__legal">
+        <li><a href="/impressum.html">Impressum</a></li>
+        <li><a href="/datenschutz.html">Datenschutz</a></li>
+        <li><a href="/agb.html">AGB</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="/assets/js/hero-slider.js" defer></script>
+</body>
+</html>

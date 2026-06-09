@@ -1,0 +1,336 @@
+/* ============================================================
+   APEX DETAILING — base.css
+   Design System: Deep Luxury / Midnight Dynamic
+   ============================================================ */
+
+/* ---------- FONTS (lokal, DSGVO-konform) ---------- */
+@font-face {
+  font-family: 'Sora';
+  src: url('/assets/fonts/sora-variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter-variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- DESIGN TOKENS ---------- */
+:root {
+  /* Base Colors */
+  --color-bg-deep:        #08090C;
+  --color-bg-elevated:    #101218;
+  --color-bg-glass:       rgba(20, 22, 28, 0.55);
+  --color-bg-glass-strong:rgba(12, 14, 20, 0.72);
+
+  /* Accent (Electric Blue) */
+  --color-accent:         #1E90FF;
+  --color-accent-glow:    rgba(30, 144, 255, 0.45);
+  --color-accent-soft:    #4DA8FF;
+
+  /* Text */
+  --color-text-primary:   #F5F7FA;
+  --color-text-muted:     #8A92A3;
+  --color-text-chrome:    #D4D4D4;
+
+  /* Borders & Effects */
+  --border-glass:         1px solid rgba(255, 255, 255, 0.08);
+  --border-glass-strong:  1px solid rgba(255, 255, 255, 0.14);
+  --blur-glass:           20px;
+  --shadow-glow-accent:   0 0 40px var(--color-accent-glow);
+  --shadow-elevated:      0 30px 60px -20px rgba(0, 0, 0, 0.6);
+
+  /* Typography */
+  --font-display:         'Sora', system-ui, -apple-system, sans-serif;
+  --font-body:            'Inter', system-ui, -apple-system, sans-serif;
+
+  --fs-eyebrow:           clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem);
+  --fs-body:              clamp(0.95rem, 0.9rem + 0.2vw, 1.0625rem);
+  --fs-sub:               clamp(1rem, 0.95rem + 0.4vw, 1.25rem);
+  --fs-h1:                clamp(2.5rem, 1.5rem + 5vw, 5.5rem);
+
+  /* Spacing (8pt) */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+  --space-2xl: 9rem;
+
+  /* Layout */
+  --container-max:   1400px;
+  --container-pad:   clamp(1rem, 3vw, 2.5rem);
+  --radius-sm:       8px;
+  --radius-md:       16px;
+  --radius-lg:       24px;
+
+  /* Motion */
+  --ease-smooth:    cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out:       cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast:  240ms;
+  --duration-med:   400ms;
+  --duration-slow:  600ms;
+
+  /* Z-Index Scale */
+  --z-base:      1;
+  --z-overlay:   10;
+  --z-handle:    20;
+  --z-nav:       100;
+  --z-skip:      999;
+}
+
+/* ---------- RESET ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: 1.6;
+  color: var(--color-text-primary);
+  background: var(--color-bg-deep);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- UTILITIES ---------- */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: var(--z-skip);
+  padding: 0.75rem 1.25rem;
+  background: var(--color-accent);
+  color: #000;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: top var(--duration-fast) var(--ease-smooth);
+}
+.skip-link:focus { top: 1rem; }
+
+[data-glass] {
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(140%);
+  backdrop-filter: blur(var(--blur-glass)) saturate(140%);
+  border: var(--border-glass);
+}
+
+/* ---------- HEADER / NAV ---------- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: var(--space-sm) var(--container-pad);
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  font-size: 0.95rem;
+}
+.nav__brand-mark {
+  color: var(--color-accent);
+  text-shadow: 0 0 12px var(--color-accent-glow);
+}
+.nav__brand-text span {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.nav__list {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.nav__list a {
+  position: relative;
+  padding: 0.4rem 0;
+  color: var(--color-text-muted);
+  transition: color var(--duration-fast) var(--ease-smooth);
+}
+.nav__list a:hover,
+.nav__list a[aria-current="page"] {
+  color: var(--color-text-primary);
+}
+.nav__list a[aria-current="page"]::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 -2px 0;
+  height: 1px;
+  background: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-accent-glow);
+}
+
+.nav__cta {
+  padding: 0.7rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  transition:
+    border-color var(--duration-fast) var(--ease-smooth),
+    color var(--duration-fast) var(--ease-smooth),
+    box-shadow var(--duration-fast) var(--ease-smooth);
+}
+.nav__cta:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-soft);
+  box-shadow: var(--shadow-glow-accent);
+}
+
+@media (max-width: 720px) {
+  .nav__list { display: none; }
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.95rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-med) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+  will-change: transform;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #000;
+  box-shadow: 0 0 0 rgba(30, 144, 255, 0);
+}
+.btn--primary:hover {
+  background: var(--color-accent-soft);
+  box-shadow: var(--shadow-glow-accent);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.btn--ghost:hover {
+  border-color: var(--color-text-chrome);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- FOOTER (Minimal Placeholder) ---------- */
+.site-footer {
+  padding: var(--space-md) 0;
+  border-top: var(--border-glass);
+  background: var(--color-bg-deep);
+}
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-pad);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+.site-footer__legal {
+  display: flex;
+  gap: var(--space-md);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.site-footer__legal a:hover { color: var(--color-text-primary); }
+
+/* Placeholder Section (only for current step) */
+.placeholder {
+  min-height: 40vh;
+  display: grid;
+  place-items: center;
+  padding: var(--space-xl) var(--container-pad);
+  color: var(--color-text-muted);
+  font-style: italic;
+}
