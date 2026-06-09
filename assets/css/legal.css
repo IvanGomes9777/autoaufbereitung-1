@@ -1,0 +1,193 @@
+/* ============================================================
+   APEX DETAILING — legal.css
+   Rechtliche Seiten (Impressum / Datenschutz / AGB)
+   ============================================================ */
+
+.legal {
+  position: relative;
+  padding: clamp(2rem, 4vw, 3rem) var(--container-pad) clamp(4rem, 7vw, 6rem);
+  background: var(--color-bg-deep);
+}
+
+.legal__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: start;
+}
+
+/* ============================================================
+   TOC (sticky sidebar)
+   ============================================================ */
+.legal__toc {
+  position: sticky;
+  top: 6rem;
+  padding: 1.25rem;
+  background: var(--color-bg-glass);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+  border: var(--border-glass);
+  border-radius: var(--radius-md);
+}
+
+.legal__toc-title {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.legal__toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.legal__toc-list a {
+  display: block;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  border-left: 2px solid transparent;
+  border-radius: 0 6px 6px 0;
+  transition:
+    color var(--duration-fast) var(--ease-smooth),
+    background var(--duration-fast) var(--ease-smooth),
+    border-color var(--duration-fast) var(--ease-smooth);
+}
+
+.legal__toc-list a:hover {
+  color: var(--color-text-primary);
+  background: rgba(255,255,255,0.03);
+  border-left-color: rgba(30,144,255,0.3);
+}
+
+/* ============================================================
+   CONTENT
+   ============================================================ */
+.legal__content {
+  max-width: 760px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-text-chrome);
+}
+
+.legal__content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1rem + 1.2vw, 1.85rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  margin: 3rem 0 1rem;
+  scroll-margin-top: 6rem;
+}
+
+.legal__content h2:first-child { margin-top: 0; }
+
+.legal__content h2::before {
+  content: '◆ ';
+  color: var(--color-accent);
+  text-shadow: 0 0 10px var(--color-accent-glow);
+  font-size: 0.85em;
+}
+
+.legal__content h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  color: var(--color-text-primary);
+  margin: 1.75rem 0 0.65rem;
+}
+
+.legal__content p {
+  margin: 0 0 1rem;
+}
+
+.legal__content strong {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.legal__content a {
+  color: var(--color-accent-soft);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal__content a:hover { color: var(--color-accent); }
+
+.legal__content ul,
+.legal__content ol {
+  margin: 0 0 1.1rem;
+  padding-left: 1.4rem;
+}
+.legal__content li { margin-bottom: 0.4rem; }
+.legal__content ul li::marker { color: var(--color-accent-soft); }
+.legal__content ol li::marker { color: var(--color-accent-soft); font-weight: 600; }
+
+/* Adress-Block / Kontaktdaten */
+.legal__address {
+  display: block;
+  padding: 1rem 1.25rem;
+  margin: 0.75rem 0 1.25rem;
+  background: rgba(8,9,12,0.4);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 0 8px 8px 0;
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}
+
+/* Hervorgehobener Hinweis-Block */
+.legal__note {
+  display: block;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: rgba(30,144,255,0.06);
+  border: 1px solid rgba(30,144,255,0.25);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  color: var(--color-text-chrome);
+}
+
+.legal__note strong { color: var(--color-accent-soft); }
+
+/* Platzhalter ([Inhaber bitte ergänzen]) */
+.legal__placeholder {
+  display: inline-block;
+  padding: 0.05em 0.4em;
+  font-family: var(--font-display);
+  font-size: 0.85em;
+  font-weight: 600;
+  color: #ffcf6e;
+  background: rgba(255,207,110,0.08);
+  border: 1px dashed rgba(255,207,110,0.45);
+  border-radius: 4px;
+}
+
+/* Letztes-Update */
+.legal__updated {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 880px) {
+  .legal__inner { grid-template-columns: 1fr; }
+  .legal__toc {
+    position: static;
+    margin-bottom: 1.5rem;
+  }
+}
