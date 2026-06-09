@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="/assets/css/base.css" />
   <link rel="stylesheet" href="/assets/css/page.css" />
+  <link rel="stylesheet" href="/assets/css/service-list.css" />
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
@@ -66,8 +67,228 @@
       </div>
     </section>
 
-    <section class="placeholder" aria-label="Folgende Sektion in Vorbereitung">
-      <p>Service-Detail-Liste folgt im nächsten Schritt.</p>
+    <section class="service-list" aria-label="Detaillierte Leistungspakete">
+      <div class="service-list__inner">
+
+        <!-- 01: Aussen-Aufbereitung -->
+        <article id="aussen" class="svc-panel">
+          <header class="svc-panel__header">
+            <div class="svc-panel__index">01<span>·</span></div>
+            <div class="svc-panel__title-wrap">
+              <h2 class="svc-panel__title">
+                <span class="svc-panel__icon" aria-hidden="true">🚿</span>
+                Außen-Aufbereitung
+              </h2>
+              <p class="svc-panel__desc">
+                Die Basis für jeden Lack: Sanfte Hand-Wäsche, Tiefen­dekontamination
+                und Schutz-Versiegelung — entfernt Bremsstaub, Insekten und Industriestäube
+                ohne den Lack zu reizen.
+              </p>
+            </div>
+            <div class="svc-panel__meta">
+              <span class="svc-panel__price"><small>ab</small>89&nbsp;€</span>
+              <span class="svc-panel__duration">2–3 Stunden</span>
+            </div>
+          </header>
+          <ul class="svc-panel__features">
+            <li>Zwei-Eimer-Hand-Wäsche, lackschonend</li>
+            <li>Tiefenreinigung der Felgen (4D)</li>
+            <li>Insekten- &amp; Teer-Entfernung</li>
+            <li>Dekontamination mit Knetreiniger</li>
+            <li>Scheiben &amp; Spiegel innen/außen</li>
+            <li>Wachs-Versiegelung als Sofort-Schutz</li>
+          </ul>
+          <div class="svc-panel__actions">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="svc-panel__note">Endpreis nach kostenloser Foto-Begutachtung.</p>
+          </div>
+        </article>
+
+        <!-- 02: Innenraum-Detailing -->
+        <article id="innen" class="svc-panel">
+          <header class="svc-panel__header">
+            <div class="svc-panel__index">02<span>·</span></div>
+            <div class="svc-panel__title-wrap">
+              <h2 class="svc-panel__title">
+                <span class="svc-panel__icon" aria-hidden="true">🪑</span>
+                Innenraum-Detailing
+              </h2>
+              <p class="svc-panel__desc">
+                Tiefenreinigung von Textil, Leder &amp; Kunststoff — inkl. Geruchs­neutralisierung.
+                Ideal nach Hund, Familie oder Leasing-Rückgabe.
+              </p>
+            </div>
+            <div class="svc-panel__meta">
+              <span class="svc-panel__price"><small>ab</small>119&nbsp;€</span>
+              <span class="svc-panel__duration">2–4 Stunden</span>
+            </div>
+          </header>
+          <ul class="svc-panel__features">
+            <li>Komplett-Aussaugen inkl. Schienen</li>
+            <li>Textil-Tiefenreinigung mit Sprühextraktion</li>
+            <li>Lederreinigung &amp; -pflege (pH-neutral)</li>
+            <li>Kunststoff-Reinigung &amp; Mattierung</li>
+            <li>Geruchsneutralisierung mit Ozon</li>
+            <li>Dachhimmel auf Wunsch</li>
+          </ul>
+          <div class="svc-panel__actions">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="svc-panel__note">Foto-Dokumentation bei jedem Auftrag inklusive.</p>
+          </div>
+        </article>
+
+        <!-- 03: Paint Correction -->
+        <article id="paint-correction" class="svc-panel">
+          <header class="svc-panel__header">
+            <div class="svc-panel__index">03<span>·</span></div>
+            <div class="svc-panel__title-wrap">
+              <h2 class="svc-panel__title">
+                <span class="svc-panel__icon" aria-hidden="true">💎</span>
+                Paint Correction
+              </h2>
+              <p class="svc-panel__desc">
+                Mehrstufige Maschinenpolitur entfernt Kratzer, Hologramme und Waschstraßen-Spuren —
+                bis der Lack wieder spiegelglatt reflektiert.
+              </p>
+            </div>
+            <div class="svc-panel__meta">
+              <span class="svc-panel__price"><small>ab</small>299&nbsp;€</span>
+              <span class="svc-panel__duration">4–8 Stunden</span>
+            </div>
+          </header>
+          <ul class="svc-panel__features">
+            <li>Lackschichten-Messung vor Beginn</li>
+            <li>1- bis 3-stufige Politur je Lackzustand</li>
+            <li>Entfernung von Hologrammen &amp; Wirbeln</li>
+            <li>Tiefenglanz-Finish mit IPA-Abreinigung</li>
+            <li>Optional: Hochglanz-Wachs als Abschluss</li>
+            <li>Vorher-/Nachher-Doku unter Studio-Licht</li>
+          </ul>
+          <div class="svc-panel__actions">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="svc-panel__note">Ideal als Vorstufe zur Keramikversiegelung.</p>
+          </div>
+        </article>
+
+        <!-- 04: Keramik -->
+        <article id="keramik" class="svc-panel">
+          <header class="svc-panel__header">
+            <div class="svc-panel__index">04<span>·</span></div>
+            <div class="svc-panel__title-wrap">
+              <h2 class="svc-panel__title">
+                <span class="svc-panel__icon" aria-hidden="true">🛡️</span>
+                Keramikversiegelung
+              </h2>
+              <p class="svc-panel__desc">
+                Langzeit-Schutz mit extremer Hydrophobie und Tiefenglanz — appliziert
+                von zertifizierten Master-Detailern, mit 5 Jahren Garantie.
+              </p>
+            </div>
+            <div class="svc-panel__meta">
+              <span class="svc-panel__price"><small>ab</small>599&nbsp;€</span>
+              <span class="svc-panel__duration">1–2 Tage</span>
+            </div>
+          </header>
+          <ul class="svc-panel__features">
+            <li>Gtechniq- oder CarPro-Beschichtung</li>
+            <li>Hydrophob: Wasser &amp; Schmutz perlen ab</li>
+            <li>UV-, Salz- &amp; Vogelkot-Schutz</li>
+            <li>2–5 Jahre Standzeit, garantiert</li>
+            <li>Felgen-Versiegelung auf Wunsch</li>
+            <li>Pflege-Set für die ersten 6 Monate</li>
+          </ul>
+          <div class="svc-panel__actions">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="svc-panel__note">Inkl. 5-Jahres-Garantie-Zertifikat.</p>
+          </div>
+        </article>
+
+        <!-- 05: PPF -->
+        <article id="ppf" class="svc-panel">
+          <header class="svc-panel__header">
+            <div class="svc-panel__index">05<span>·</span></div>
+            <div class="svc-panel__title-wrap">
+              <h2 class="svc-panel__title">
+                <span class="svc-panel__icon" aria-hidden="true">🎞️</span>
+                Lackschutzfolie (PPF)
+              </h2>
+              <p class="svc-panel__desc">
+                Selbstheilende Polyurethan-Folie für Stoßstange, Motorhaube und Kanten —
+                unsichtbarer Stein­schlag-Schutz für die am stärksten beanspruchten Lackpartien.
+              </p>
+            </div>
+            <div class="svc-panel__meta">
+              <span class="svc-panel__price"><small>ab</small>899&nbsp;€</span>
+              <span class="svc-panel__duration">1–3 Tage</span>
+            </div>
+          </header>
+          <ul class="svc-panel__features">
+            <li>Selbstheilende TPU-Folie (Premium-Qualität)</li>
+            <li>Stoßstange, Motorhaube, Kotflügel-Kanten</li>
+            <li>Türgriff-Mulden &amp; Schweller optional</li>
+            <li>Vollverklebung „Full Front" auf Wunsch</li>
+            <li>Bis zu 10 Jahre Standzeit</li>
+            <li>Rückstandsfrei entfernbar</li>
+          </ul>
+          <div class="svc-panel__actions">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="svc-panel__note">Beratung zu Teil- vs. Vollverklebung inklusive.</p>
+          </div>
+        </article>
+
+        <!-- 06: APEX Complete -->
+        <article id="apex-complete" class="svc-panel svc-panel--featured">
+          <header class="svc-panel__header">
+            <div class="svc-panel__index">06<span>·</span></div>
+            <div class="svc-panel__title-wrap">
+              <h2 class="svc-panel__title">
+                <span class="svc-panel__icon" aria-hidden="true">👑</span>
+                APEX Complete
+                <span class="svc-panel__badge">Empfohlen</span>
+              </h2>
+              <p class="svc-panel__desc">
+                Das Rundum-Paket für maximalen Werterhalt: mehrstufige Paint Correction,
+                5-Jahres-Keramikversiegelung und komplettes Innenraum-Detailing — alles in einem Auftrag.
+              </p>
+            </div>
+            <div class="svc-panel__meta">
+              <span class="svc-panel__price"><small>ab</small>1.299&nbsp;€</span>
+              <span class="svc-panel__duration">2–3 Tage</span>
+            </div>
+          </header>
+          <ul class="svc-panel__features">
+            <li>Komplette Außen-Aufbereitung &amp; Dekontamination</li>
+            <li>Mehrstufige Paint Correction (Studio-Licht)</li>
+            <li>Premium-Keramikversiegelung mit 5-Jahres-Garantie</li>
+            <li>Innenraum-Tiefenreinigung &amp; Lederpflege</li>
+            <li>Felgen-Versiegelung inklusive</li>
+            <li>Vollständige Vorher-/Nachher-Doku</li>
+          </ul>
+          <div class="svc-panel__actions">
+            <a class="btn btn--primary" href="/kontakt.html#anfrage">
+              Komplett-Paket anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+            <p class="svc-panel__note">Persönliche Vor-Ort-Beratung &amp; Lackzustand-Analyse vorab.</p>
+          </div>
+        </article>
+
+      </div>
     </section>
 
   </main>
@@ -82,6 +303,8 @@
       </ul>
     </div>
   </footer>
+
+  <script src="/assets/js/counters.js" defer></script>
 
 </body>
 </html>
