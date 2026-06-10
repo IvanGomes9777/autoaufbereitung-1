@@ -1,0 +1,16 @@
+{
+  "name": "apex-detailing-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "APEX Detailing Berlin – statische Website (HTML/CSS/Vanilla-JS).",
+  "scripts": {
+    "audit": "node tools/lighthouse-check.mjs",
+    "audit:mobile": "node tools/lighthouse-check.mjs --mobile",
+    "audit:prod": "node tools/lighthouse-check.mjs https://autoaufbereitung-1.vercel.app/ https://autoaufbereitung-1.vercel.app/leistungen.html https://autoaufbereitung-1.vercel.app/kontakt.html",
+    "serve": "python3 -m http.server 8765"
+  },
+  "devDependencies": {
+    "chrome-launcher": "^1.2.1",
+    "lighthouse": "^13.4.0"
+  }
+}
