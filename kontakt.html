@@ -38,7 +38,7 @@
   <link rel="preload" href="/assets/fonts/sora-variable.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="/assets/css/base.css?v3" />
   <link rel="stylesheet" href="/assets/css/page.css?v3" />
-  <link rel="stylesheet" href="/assets/css/gallery-full.css?v3" />
+  <link rel="stylesheet" href="/assets/css/gallery-full.css?v4" />
   <link rel="stylesheet" href="/assets/css/team.css?v3" />
   <link rel="stylesheet" href="/assets/css/contact.css?v3" />
   <link rel="stylesheet" href="/assets/css/location.css?v3" />
@@ -99,7 +99,7 @@
           </h2>
           <p class="gallery-full__lead">
             Ein Ausschnitt aus unserer Studio-Arbeit — vom Performance-Sportler bis zum
-            Klassiker. Filtere nach Service oder ziehe den Regler in jeder Karte.
+            Klassiker. Filtere nach Service und sieh dir die Ergebnisse an.
           </p>
         </header>
 
@@ -122,24 +122,9 @@
         <div class="gallery-full__grid">
 
           <article class="gf-card" data-cat="paint keramik">
-            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="BMW M4 – Paint Correction und Keramikversiegelung">
-              <figure class="gf-card__media gf-card__media--after">
-                <img src="/assets/img/after-bmw-1.jpg" alt="Nachher: BMW M4 mit spiegelnder Lackoberfläche nach Paint Correction." loading="lazy" decoding="async" width="1200" height="800" />
-              </figure>
-              <figure class="gf-card__media gf-card__media--before" data-clip>
-                <img src="/assets/img/dirty-bmw-1.jpg" alt="Vorher: BMW M4 mit verkratzter, matter Motorhaube." loading="lazy" decoding="async" width="1200" height="800" />
-              </figure>
-              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
-              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
-              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="BMW M4 Vergleich anpassen">
-                <span class="gf-card__handle-line" aria-hidden="true"></span>
-                <span class="gf-card__handle-grip" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
-                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </div>
+            <figure class="gf-card__photo">
+              <img src="/assets/img/after-bmw-1.jpg" alt="BMW M4 mit spiegelnder Lackoberfläche nach Paint Correction." loading="lazy" decoding="async" width="1200" height="800" />
+            </figure>
             <div class="gf-card__meta">
               <div class="gf-card__meta-text">
                 <h3 class="gf-card__vehicle">BMW M4 Competition</h3>
@@ -150,24 +135,9 @@
           </article>
 
           <article class="gf-card" data-cat="innen">
-            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Audi Q7 – Innenraum-Komplettaufbereitung">
-              <figure class="gf-card__media gf-card__media--after">
-                <img src="/assets/img/interior-clean-1.jpg" alt="Nachher: Audi Q7 Innenraum gereinigt." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <figure class="gf-card__media gf-card__media--before" data-clip>
-                <img src="/assets/img/dirty-interior-1.jpg" alt="Vorher: Audi Q7 Innenraum verschmutzt." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
-              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
-              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Audi Q7 Vergleich anpassen">
-                <span class="gf-card__handle-line" aria-hidden="true"></span>
-                <span class="gf-card__handle-grip" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
-                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </div>
+            <figure class="gf-card__photo">
+              <img src="/assets/img/interior-clean-1.jpg" alt="Audi Q7 Innenraum gereinigt." loading="lazy" decoding="async" width="800" height="600" />
+            </figure>
             <div class="gf-card__meta">
               <div class="gf-card__meta-text">
                 <h3 class="gf-card__vehicle">Audi Q7</h3>
@@ -178,24 +148,9 @@
           </article>
 
           <article class="gf-card" data-cat="keramik">
-            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Tesla Model 3 – Keramikversiegelung">
-              <figure class="gf-card__media gf-card__media--after">
-                <img src="/assets/img/after-tesla-1.jpg" alt="Nachher: Tesla mit versiegeltem Lack." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <figure class="gf-card__media gf-card__media--before" data-clip>
-                <img src="/assets/img/dirty-tesla-1.jpg" alt="Vorher: Tesla mit verschmutztem Lack." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
-              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
-              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Tesla Model 3 Vergleich anpassen">
-                <span class="gf-card__handle-line" aria-hidden="true"></span>
-                <span class="gf-card__handle-grip" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
-                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </div>
+            <figure class="gf-card__photo">
+              <img src="/assets/img/after-tesla-1.jpg" alt="Tesla mit versiegeltem Lack." loading="lazy" decoding="async" width="800" height="600" />
+            </figure>
             <div class="gf-card__meta">
               <div class="gf-card__meta-text">
                 <h3 class="gf-card__vehicle">Tesla Model 3</h3>
@@ -206,24 +161,9 @@
           </article>
 
           <article class="gf-card" data-cat="paint keramik innen aussen">
-            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Porsche 911 – Komplett-Aufbereitung">
-              <figure class="gf-card__media gf-card__media--after">
-                <img src="/assets/img/after-porsche-1.jpg" alt="Nachher: Porsche 911 mit tiefem Lackglanz." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <figure class="gf-card__media gf-card__media--before" data-clip>
-                <img src="/assets/img/dirty-porsche-1.jpg" alt="Vorher: Porsche 911 mit mattem, verschmutztem Lack." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
-              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
-              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Porsche 911 Vergleich anpassen">
-                <span class="gf-card__handle-line" aria-hidden="true"></span>
-                <span class="gf-card__handle-grip" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
-                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </div>
+            <figure class="gf-card__photo">
+              <img src="/assets/img/after-porsche-1.jpg" alt="Porsche 911 mit tiefem Lackglanz." loading="lazy" decoding="async" width="800" height="600" />
+            </figure>
             <div class="gf-card__meta">
               <div class="gf-card__meta-text">
                 <h3 class="gf-card__vehicle">Porsche 911</h3>
@@ -234,24 +174,9 @@
           </article>
 
           <article class="gf-card" data-cat="restauration paint">
-            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="Mercedes-Klassiker – Lack-Restauration">
-              <figure class="gf-card__media gf-card__media--after">
-                <img src="/assets/img/after-blackcar-2.jpg" alt="Nachher: Mercedes-Klassiker mit restauriertem Tiefenlack." loading="lazy" decoding="async" width="1200" height="800" />
-              </figure>
-              <figure class="gf-card__media gf-card__media--before" data-clip>
-                <img src="/assets/img/dirty-blackcar-2.jpg" alt="Vorher: Mercedes-Klassiker mit oxidiertem Lack." loading="lazy" decoding="async" width="1200" height="800" />
-              </figure>
-              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
-              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
-              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Mercedes Klassiker Vergleich anpassen">
-                <span class="gf-card__handle-line" aria-hidden="true"></span>
-                <span class="gf-card__handle-grip" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
-                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </div>
+            <figure class="gf-card__photo">
+              <img src="/assets/img/after-blackcar-2.jpg" alt="Mercedes-Klassiker mit restauriertem Tiefenlack." loading="lazy" decoding="async" width="1200" height="800" />
+            </figure>
             <div class="gf-card__meta">
               <div class="gf-card__meta-text">
                 <h3 class="gf-card__vehicle">Mercedes-Klassiker (12 J.)</h3>
@@ -262,24 +187,9 @@
           </article>
 
           <article class="gf-card" data-cat="aussen">
-            <div class="gf-card__slider" data-slider role="group" aria-roledescription="Vorher-Nachher-Vergleich" aria-label="VW Golf – Außen-Express">
-              <figure class="gf-card__media gf-card__media--after">
-                <img src="/assets/img/after-vw-1.jpg" alt="Nachher: VW Golf nach Hand-Wäsche und Versiegelung." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <figure class="gf-card__media gf-card__media--before" data-clip>
-                <img src="/assets/img/dirty-vw-1.jpg" alt="Vorher: VW Golf mit verschmutzter Karosserie." loading="lazy" decoding="async" width="800" height="600" />
-              </figure>
-              <span class="gf-card__label gf-card__label--before" aria-hidden="true">Vorher</span>
-              <span class="gf-card__label gf-card__label--after" aria-hidden="true">Nachher</span>
-              <button type="button" class="gf-card__handle" data-handle role="slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="VW Golf Vergleich anpassen">
-                <span class="gf-card__handle-line" aria-hidden="true"></span>
-                <span class="gf-card__handle-grip" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" width="14" height="14" focusable="false">
-                    <path d="M9 6l-5 6 5 6M15 6l5 6-5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-              </button>
-            </div>
+            <figure class="gf-card__photo">
+              <img src="/assets/img/after-vw-1.jpg" alt="VW Golf nach Hand-Wäsche und Versiegelung." loading="lazy" decoding="async" width="800" height="600" />
+            </figure>
             <div class="gf-card__meta">
               <div class="gf-card__meta-text">
                 <h3 class="gf-card__vehicle">VW Golf</h3>

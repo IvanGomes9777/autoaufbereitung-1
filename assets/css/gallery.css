@@ -101,6 +101,20 @@
   background: #000;
 }
 
+.gallery-card__photo {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  margin: 0;
+  overflow: hidden;
+  background: #000;
+}
+.gallery-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .gallery-card__media {
   position: absolute;
   inset: 0;
@@ -263,12 +277,12 @@
 @media (max-width: 980px) {
   .gallery__grid { grid-template-columns: 1fr 1fr; }
   .gallery-card:nth-child(3) { grid-column: 1 / -1; }
-  .gallery-card:nth-child(3) .gallery-card__slider { aspect-ratio: 16 / 7; }
+  .gallery-card:nth-child(3) .gallery-card__photo { aspect-ratio: 16 / 7; }
 }
 
 @media (max-width: 620px) {
   .gallery__grid { grid-template-columns: 1fr; }
   .gallery-card:nth-child(3) { grid-column: auto; }
-  .gallery-card:nth-child(3) .gallery-card__slider { aspect-ratio: 4 / 3; }
+  .gallery-card:nth-child(3) .gallery-card__photo { aspect-ratio: 4 / 3; }
   .gallery__footer { flex-direction: column; align-items: flex-start; }
 }
