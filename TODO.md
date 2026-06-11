@@ -13,18 +13,29 @@ Alle Punkte sind atomar — kann nach Belieben aufgeteilt werden.
 ### 1. Rechtliche Pflichtangaben ergänzen
 Alle gelben `[Platzhalter]`-Pills auf den Legal-Seiten durch echte Daten ersetzen.
 
+> ✅ Rechts-Audit (Skill `webdesign-recht-de`) durchgeführt — Normfehler behoben
+> (TMG→DDG, RStV→MStV, TTDSG→TDDDG, toter OS-Link, Abnahme § 640, Widerrufsbelehrung,
+> § 306). Details: `docs/audit-rechtliche-pruefung.md`. Verbleibende Platzhalter & Aufgaben:
+
 - [ ] **Impressum** (`impressum.html`)
-  - [ ] Steuernummer eintragen
-  - [ ] USt-IdNr. (sobald vom Finanzamt vergeben) eintragen
+  - [ ] USt-IdNr. (sobald vom Finanzamt vergeben) eintragen — nur falls vorhanden
   - [ ] Zuständiges Ordnungsamt / Aufsichtsbehörde benennen
+  - [x] ~~Steuernummer~~ — entfernt (im Impressum nicht erforderlich)
 - [ ] **Datenschutzerklärung** (`datenschutz.html`)
   - [ ] Hosting-Anbieter konkret benennen (z. B. Vercel Inc., Hetzner)
   - [ ] Server-Standort (Land) eintragen
-  - [ ] AV-Vertrag mit Hoster nachweislich abschließen
+  - [ ] AV-Vertrag mit Hoster nachweislich abschließen; bei US-Hoster DPF/SCC sicherstellen
+  - [ ] Beim Live-Gang des Formulars echten Datenfluss (Backend/Mail-Dienst als
+        Auftragsverarbeiter) ergänzen — Formular sendet aktuell noch nichts
+        (TODO in `contact-form.js`)
 - [ ] **AGB** (`agb.html`)
   - [ ] Versicherungsnummer + Deckungssumme der Betriebshaftpflicht eintragen
   - [ ] AGB von einem Anwalt prüfen lassen (Schutzklausel-Check)
-- [ ] **Datum „Stand: …"** auf allen 3 Legal-Seiten auf aktuellen Monat aktualisieren
+- [ ] **Widerruf** (`widerruf.html`)
+  - [ ] Vor vorzeitigem Leistungsbeginn ausdrückliche Zustimmung + Kenntnisnahme
+        des Verbrauchers in Textform einholen (§ 356 Abs. 4 BGB)
+- [x] **Datum „Stand: …"** auf den Legal-Seiten aktualisiert (Juni 2026)
+- [ ] Abschließende Gesamtprüfung durch Fachanwalt für IT-/Medienrecht
 
 ### 2. Geschäftsdaten überall einheitlich ersetzen
 Die Demo-Daten von „APEX Detailing" durch die echten Daten ersetzen.
